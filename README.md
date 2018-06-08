@@ -22,19 +22,19 @@ $ alias edit=<nano|vi|vim|subl>
 ```
 
 ```ShellSession
-$ cd ${GITHUB_USERNAME}/workspace
-$ source scripts/activate
+$ cd ${GITHUB_USERNAME}/workspace #переход в директорию
+$ source scripts/activate #выполнение команд в файле
 ```
 
 ```ShellSession
-$ mkdir projects/lab03 && cd projects/lab03
-$ git init
+$ mkdir projects/lab03 && cd projects/lab03 #создание директории и переход к ней 
+$ git init #инициализация директории
 Initialized empty Git repository in /home/ubuntu/workspace/VladislavSchastnyi/workspace/projects/lab03/.git/
-$ git config --global user.name ${GITHUB_USERNAME}
-$ git config --global user.email ${GITHUB_EMAIL}
-$ git config -e --global
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03.git
-$ git pull origin master
+$ git config --global user.name ${GITHUB_USERNAME} #имя пользователя 
+$ git config --global user.email ${GITHUB_EMAIL} #параметр почты пользователя для Git
+$ git config -e --global #конфигурация в текстовом редакторе
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03.git #присвоение нового имени
+$ git pull origin master #добавление ветки master
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -42,21 +42,22 @@ Unpacking objects: 100% (3/3), done.
 From https://github.com/VladislavSchastnyi/lab03
  * branch            master     -> FETCH_HEAD
  * [new branch]      master     -> origin/master
-$ touch README.md
-$ git status
-On branch master
-Untracked files:
+$ touch README.md #создание файла README
+$ git status #состояние файла
+On branch master 
+Untracked files: 
   (use "git add <file>..." to include in what will be committed)
 
         README.md
 
 nothing added to commit but untracked files present (use "git add" to track)
-$ git add README.md
-$ git commit -m"added README.md"
+$ git add README.md #отслеживание файла
+$ git commit -m"added README.md" #коммит
 [master d487e77] added README.md
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 README.md
-$ git push origin masterUsername for 'https://github.com': VladislavSchastnyi
+$ git push origin master #отправка изменения на удаленный репозиторий
+Username for 'https://github.com': VladislavSchastnyi
 Password for 'https://VladislavSchastnyi@github.com': 
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
@@ -78,7 +79,7 @@ To https://github.com/VladislavSchastnyi/lab03.git
 ```
 
 ```ShellSession
-$ git pull origin master
+$ git pull origin master #изменения с ветки
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -91,7 +92,7 @@ Fast-forward
  .gitignore | 4 ++++
  1 file changed, 4 insertions(+)
  create mode 100644 .gitignore
-$ git log
+$ git log #список изменений
 commit f02fa2f8166f1132a7814f7a6b733fc99f0a39da (HEAD -> master, origin/master)
 Author: VladislavSchastnyi <32384821+VladislavSchastnyi@users.noreply.github.com>
 Date:   Thu Jun 7 22:58:30 2018 +0300
@@ -112,10 +113,10 @@ Date:   Thu Jun 7 22:28:08 2018 +0300
 ```
 
 ```ShellSession
-$ mkdir sources
-$ mkdir include
-$ mkdir examples
-$ cat > sources/print.cpp <<EOF
+$ mkdir sources #создание директории
+$ mkdir include # создание директории
+$ mkdir examples #создание директории
+$ cat > sources/print.cpp <<EOF #Запись в файл
 #include <print.hpp>
 
 void print(const std::string& text, std::ostream& out) {
@@ -129,7 +130,7 @@ EOF
 ```
 
 ```ShellSession
-$ cat > include/print.hpp <<EOF
+$ cat > include/print.hpp <<EOF #
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -140,7 +141,7 @@ EOF
 ```
 
 ```ShellSession
-$ cat > examples/example1.cpp <<EOF
+$ cat > examples/example1.cpp <<EOF #Запись в файл
 #include <print.hpp>
 
 int main(int argc, char** argv) {
@@ -150,7 +151,7 @@ EOF
 ```
 
 ```ShellSession
-$ cat > examples/example2.cpp <<EOF
+$ cat > examples/example2.cpp <<EOF #Запись в файл
 #include <fstream>
 #include <print.hpp>
 
@@ -162,11 +163,11 @@ EOF
 ```
 
 ```ShellSession
-$ edit README.md
+$ edit README.md #открытие файла
 ```
 
 ```ShellSession
-$ git status
+$ git status #статус файла
 On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -182,15 +183,15 @@ Untracked files:
         sources/
 
 no changes added to commit (use "git add" and/or "git commit -a")
-$ git add .
-$ git commit -m"added sources"
+$ git add . #отслеживание всех файлов в каталоге
+$ git commit -m"added sources" #акоммит
 [master 6cc48b6] added sources
  5 files changed, 28 insertions(+)
  create mode 100644 examples/example1.cpp
  create mode 100644 examples/example2.cpp
  create mode 100644 include/print.hpp
  create mode 100644 sources/print.cpp
-$ git push origin master
+$ git push origin master #помещение изменений в ветку
 Username for 'https://github.com': VladislavSchastnyi
 Password for 'https://VladislavSchastnyi@github.com': 
 Counting objects: 10, done.
